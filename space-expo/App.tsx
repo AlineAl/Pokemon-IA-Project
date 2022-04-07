@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AppRegistry } from 'react-native';
 import Home from './src/components/Home/Home';
 import PlanetPages from './src/components/PlanetPages/PlanetPages';
+import CrewPages from './src/components/CrewPages/CrewPages';
 import {
   ApolloProvider,
   ApolloClient,
@@ -28,6 +29,7 @@ export default function App() {
         <Stack.Navigator screenOptions={{headerShown: false}}>
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="PlanetPages" component={PlanetPages} />
+          <Stack.Screen name="CrewPages" component={CrewPages} />
         </Stack.Navigator>
       </NavigationContainer>
     </ApolloProvider>

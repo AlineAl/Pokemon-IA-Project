@@ -11,7 +11,9 @@ const Navbar = () => {
     return(
         <SafeAreaView>
             <View style={styles.Nav}>
-                <Image style={styles.imageLogo} source={require('../../../assets/shared/logo.svg')} />
+                <Link to={{screen:'Home'}}>
+                    <Image style={styles.imageLogo} source={require('../../../assets/shared/logo.svg')} />
+                </Link>
                 <Pressable
                     onPress={() => {
                         setOpenModal(!openModal);
@@ -49,8 +51,10 @@ const Navbar = () => {
                             </Link>
                         </View>
                         <View style={styles.flexTitleModal}>
-                            <Text style={styles.numberModal}>02</Text>
-                            <Text style={styles.titleModal}>crew</Text>
+                            <Link to={{screen:'CrewPages'}} onPress={() => {setOpenModal(!openModal)}}>
+                                <Text style={styles.numberModal}>02</Text>
+                                <Text style={styles.titleModal}>crew</Text>
+                            </Link>
                         </View>
                         <View style={styles.flexTitleModal}>
                             <Text style={styles.numberModal}>03</Text>
