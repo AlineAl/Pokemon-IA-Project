@@ -63,7 +63,6 @@ const CrewPages = () => {
                     horizontal
                     showsHorizontalScrollIndicator={false}
                     showPagination
-                    onPaginationSelectedIndex={() => {}}
                     paginationStyle={{position: "absolute", top: 408}}
                 />
             </ScrollView>

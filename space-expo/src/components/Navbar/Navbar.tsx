@@ -57,8 +57,11 @@ const Navbar = () => {
                             </Link>
                         </View>
                         <View style={styles.flexTitleModal}>
-                            <Text style={styles.numberModal}>03</Text>
-                            <Text style={styles.titleModal}>technology</Text>
+                            <Link to={{screen:'LaunchesPages'}} onPress={() => {setOpenModal(!openModal)}}>
+                                <Text style={styles.numberModal}>03</Text>
+                                <Text style={styles.titleModal}>technology</Text>
+                            </Link>
+
                         </View>
                     </View>
                 </BlurView>
