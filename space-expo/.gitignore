@@ -1,7 +1,7 @@
 node_modules/
 .expo/
+assets/
 dist/
-/assets/
 npm-debug.*
 *.jks
 *.p8
