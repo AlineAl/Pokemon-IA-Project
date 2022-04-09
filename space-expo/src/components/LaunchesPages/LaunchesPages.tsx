@@ -31,6 +31,7 @@ const LaunchesPages = () => {
                         keyExtractor={(item) => item.id}
                         horizontal
                         showsHorizontalScrollIndicator={false}
+                        bounces={false}
                         showPagination
                         renderItem={({ item }) =>
                             <View key={item.id} style={styles.contentBody}>

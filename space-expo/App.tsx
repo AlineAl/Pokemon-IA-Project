@@ -28,10 +28,10 @@ export default function App() {
     <ApolloProvider client={client}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-          <Stack.Screen name="Home" component={Home} />
+          {/*<Stack.Screen name="Home" component={Home} />*/}
           <Stack.Screen name="PlanetPages" component={PlanetPages} />
-          <Stack.Screen name="CrewPages" component={CrewPages} />
-          <Stack.Screen name="LaunchesPages" component={LaunchesPages} />
+          {/*<Stack.Screen name="CrewPages" component={CrewPages} />
+          <Stack.Screen name="LaunchesPages" component={LaunchesPages} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </ApolloProvider>

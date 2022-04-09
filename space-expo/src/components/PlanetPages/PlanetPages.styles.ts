@@ -30,7 +30,11 @@ const styles = StyleSheet.create({
     listView: {
         display: "flex",
         flexDirection: "row",
-        color: "white"
+        color: "white",
+        justifyContent: "center",
+        position: "relative",
+        top: 250,
+        zIndex: 40
     },
     imagesPlanet: {
         width: 170,
@@ -43,6 +47,7 @@ const styles = StyleSheet.create({
         textTransform: "uppercase",
         fontFamily: "Bellefair_400Regular",
         fontSize: 56,
+        marginTop: "2.5rem"
     },
     contentBody: {
         width: windowWidth,
@@ -82,6 +87,25 @@ const styles = StyleSheet.create({
         color: "white",
         fontFamily: "Bellefair_400Regular",
         fontSize: 28
+    },
+    linksPlanet: {
+        color: "#D0D6F9",
+        fontFamily: "BarlowCondensed_400Regular",
+        fontSize: 14,
+        letterSpacing: 2.36,
+        textTransform: "uppercase",
+        marginLeft: "1rem"
+    },
+    hoverLinks: {
+        color: "#FFFFFF",
+        fontFamily: "BarlowCondensed_400Regular",
+        fontSize: 14,
+        letterSpacing: 2.36,
+        textTransform: "uppercase",
+        marginLeft: "1rem",
+        borderBottomColor: "#FFFFFF",
+        borderBottomWidth: 3,
+        paddingBottom: 6
     }
 });
 
