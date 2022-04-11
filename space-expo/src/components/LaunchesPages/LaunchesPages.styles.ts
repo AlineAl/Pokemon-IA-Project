@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     },
     contentBody: {
         width: windowWidth,
+        height: '100%',
         marginTop: "2rem",
         textAlign: "center"
     },
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
         color: "#D0D6F9",
         fontFamily: "BarlowCondensed_400Regular",
         fontSize: 14,
-        marginTop: "2rem",
+        marginTop: "6rem",
         letterSpacing: 2.36
     },
     titleLaunche: {
@@ -59,6 +60,41 @@ const styles = StyleSheet.create({
         lineHeight: 22,
         color: "#D0D6F9",
         marginHorizontal: "1rem"
+    },
+    flexCarousel: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        position: "absolute",
+        top: 335,
+        width: '100%'
+    },
+    viewDotNumber: {
+        borderRadius: 50,
+        borderColor: "#4D5057",
+        borderWidth: 1,
+        width: 40,
+        height: 40,
+        marginRight: "0.5rem"
+    },
+    dotNumbers: {
+        color: "#FFFFFF",
+        display: "flex",
+        margin: "auto"
+    },
+    hoverDotNumber: {
+        color: "#0B0D17",
+        display: "flex",
+        margin: "auto"
+    },
+    hoverViewDotNumber: {
+        borderRadius: 50,
+        borderColor: "#FFFFFF",
+        backgroundColor: "#FFFFFF",
+        borderWidth: 1,
+        width: 40,
+        height: 40,
+        marginRight: "0.5rem"
     }
 })
 

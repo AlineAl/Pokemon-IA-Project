@@ -36,14 +36,14 @@ const styles = StyleSheet.create({
     imagesCrew: {
         width: 177.12,
         height: 250,
-        margin: 'auto'
-    },
-    contentBody: {
-        width: windowWidth
+        margin: 'auto',
+        marginTop: 0
     },
     bodyTextCrew: {
         textAlign: "center",
-        marginTop: "3.5rem"
+        marginTop: "3.5rem",
+        width: windowWidth,
+        height: '100%'
     },
     roleText: {
         color: "#FFFFFF",

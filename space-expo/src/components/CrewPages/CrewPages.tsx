@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { ScrollView, ImageBackground, View, Text, FlatList, Image } from "react-native";
+import { ScrollView, ImageBackground, View, Text, FlatList, Image, TouchableOpacity } from "react-native";
 import Navbar from "../Navbar/Navbar";
 import styles from "../CrewPages/CrewPages.styles";
 import { Bellefair_400Regular } from '@expo-google-fonts/bellefair';
@@ -33,7 +33,7 @@ const CrewPages = () => {
     }
 
     const renderItem: React.FC<{item: CarouselItemsCrew}> = ({item}) => {
-        return <View style={styles.contentBody}>
+        return <TouchableOpacity>
 
             <View style={styles.divImage}>
                 <Image style={styles.imagesCrew} source={require(`../../../assets/crew/${item.images.webp}`)} />
@@ -44,7 +44,7 @@ const CrewPages = () => {
                 <Text style={styles.nameText}>{item.name}</Text>
                 <Text style={styles.bioText}>{item.bio}</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     }
 
     return(
@@ -63,7 +63,8 @@ const CrewPages = () => {
                     horizontal
                     showsHorizontalScrollIndicator={false}
                     showPagination
-                    paginationStyle={{position: "absolute", top: 408}}
+                    paginationStyle={{position: 'absolute', top: 396}}
+                    paginationStyleItem={{width: 10, height: 10}}
                 />
             </ScrollView>
         </ImageBackground>
