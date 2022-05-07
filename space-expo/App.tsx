@@ -4,6 +4,7 @@ import { AppRegistry } from "react-native";
 import Home from "./src/components/Home/Home";
 import PlanetPages from "./src/components/PlanetPages/PlanetPages";
 import CrewPages from "./src/components/CrewPages/CrewPages";
+import Navbar from "./src/components/Navbar/Navbar";
 import LaunchesPages from "./src/components/LaunchesPages/LaunchesPages";
 import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 
@@ -23,9 +24,9 @@ export default function App() {
     <ApolloProvider client={client}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          {/*<Stack.Screen name="Home" component={Home} /> */}
-          {/*<Stack.Screen name="PlanetPages" component={PlanetPages} />*/}
-          {/*<Stack.Screen name="CrewPages" component={CrewPages} />*/}
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="PlanetPages" component={PlanetPages} />
+          <Stack.Screen name="CrewPages" component={CrewPages} />
           <Stack.Screen name="LaunchesPages" component={LaunchesPages} />
         </Stack.Navigator>
       </NavigationContainer>

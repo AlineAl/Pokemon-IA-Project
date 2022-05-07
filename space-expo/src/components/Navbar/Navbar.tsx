@@ -5,9 +5,12 @@ import Modal from "react-native-modal";
 import styles from "./Navbar.styles";
 import { BlurView } from "expo-blur";
 import { useMediaQuery } from "react-responsive";
+import { useRoute } from "@react-navigation/native";
 
 const Navbar = () => {
   const [openModal, setOpenModal] = useState(false);
+  const route = useRoute();
+  console.log(route);
 
   const navbarTablet = () => {
     const isTabletDevice = useMediaQuery({
@@ -45,7 +48,7 @@ const Navbar = () => {
             <Link
               to={{ screen: "Home" }}
               style={
-                { screen: "Home" } ? styles.borderBottomTabletActive : styles.borderBottomTablet
+                route.name === "Home" ? styles.borderBottomTabletActive : styles.borderBottomTablet
               }
             >
               <Text style={styles.titleModalTablet}>home</Text>
@@ -53,7 +56,7 @@ const Navbar = () => {
             <Link
               to={{ screen: "PlanetPages" }}
               style={
-                { screen: "PlanetPages" }
+                route.name === "PlanetPages"
                   ? styles.borderBottomTabletActive
                   : styles.borderBottomTablet
               }
@@ -63,7 +66,7 @@ const Navbar = () => {
             <Link
               to={{ screen: "CrewPages" }}
               style={
-                { screen: "CrewPages" }
+                route.name === "CrewPages"
                   ? styles.borderBottomTabletActive
                   : styles.borderBottomTablet
               }
@@ -73,7 +76,7 @@ const Navbar = () => {
             <Link
               to={{ screen: "LaunchesPages" }}
               style={
-                { screen: "LaunchesPages" }
+                route.name === "LaunchesPages"
                   ? styles.borderBottomTabletActive
                   : styles.borderBottomTablet
               }
