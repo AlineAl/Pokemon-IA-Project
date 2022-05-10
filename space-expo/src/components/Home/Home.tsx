@@ -17,6 +17,12 @@ const Home = ({ navigation: { navigate } }: any) => {
   const isTabletDevice = useMediaQuery({
     minDeviceWidth: 768,
   });
+  const isDesktopDevice = useMediaQuery({
+    minDeviceWidth: 1440,
+  });
+  const isMobileDevice = useMediaQuery({
+    minDeviceWidth: 320,
+  });
 
   if (!fontsLoaded) {
     return <AppLoading />;
@@ -24,37 +30,69 @@ const Home = ({ navigation: { navigate } }: any) => {
 
   return (
     <ImageBackground
-      style={styles.imageBackground}
+      style={isDesktopDevice ? styles.imageHeightBackground : styles.imageBackground}
       source={
-        isTabletDevice
-          ? require("../../../assets/home/background-home-tablet.jpg")
-          : require("../../../assets/home/background-home-mobile.jpg")
+        (isDesktopDevice && require("../../../assets/home/background-home-desktop.jpg")) ||
+        (isTabletDevice && require("../../../assets/home/background-home-tablet.jpg")) ||
+        (isMobileDevice && require("../../../assets/home/background-home-mobile.jpg"))
       }
     >
       <Navbar />
-      <View style={isTabletDevice && styles.bodyHomeTablet}>
-        <Text style={isTabletDevice ? styles.textHomeTablet : styles.textHome}>
-          so, you want to travel to
-        </Text>
-        <Text style={isTabletDevice ? styles.textSpaceTablet : styles.textSpace}>space</Text>
-        <Text style={styles.textDescription}>
-          Let's face it; if you want go to space, you might as well genuinely go to outer space and
-          not hover kind of on the edge of it. Well sit back, and relax because we'll give you a
-          truly out of this world experience !
-        </Text>
-      </View>
-      <Pressable
-        style={{ zIndex: -1 }}
-        onPress={() => {
-          navigate("PlanetPages");
-        }}
-      >
-        <View style={isTabletDevice ? styles.contentPressableTablet : styles.contentPressable}>
-          <Text style={isTabletDevice ? styles.textPressableTablet : styles.textPressable}>
-            Explore
+      <View style={isDesktopDevice && styles.displayFlexDesktop}>
+        <View
+          style={
+            (isDesktopDevice && styles.bodyHomeDesktop) || (isTabletDevice && styles.bodyHomeTablet)
+          }
+        >
+          <Text
+            style={
+              (isDesktopDevice && styles.textHomeDesktop) ||
+              (isTabletDevice && styles.textHomeTablet) ||
+              (isMobileDevice && styles.textHome)
+            }
+          >
+            so, you want to travel to
+          </Text>
+          <Text
+            style={
+              (isDesktopDevice && styles.textSpaceDesktop) ||
+              (isTabletDevice && styles.textSpaceTablet) ||
+              (isMobileDevice && styles.textSpace)
+            }
+          >
+            space
+          </Text>
+          <Text style={isDesktopDevice ? styles.textDescriptionDesktop : styles.textDescription}>
+            Let's face it; if you want go to space, you might as well genuinely go to outer space
+            and not hover kind of on the edge of it. Well sit back, and relax because we'll give you
+            a truly out of this world experience !
           </Text>
         </View>
-      </Pressable>
+        <Pressable
+          style={{ zIndex: -1 }}
+          onPress={() => {
+            navigate("PlanetPages");
+          }}
+        >
+          <View
+            style={
+              (isDesktopDevice && styles.contentPressableDesktop) ||
+              (isTabletDevice && styles.contentPressableTablet) ||
+              (isMobileDevice && styles.contentPressable)
+            }
+          >
+            <Text
+              style={
+                (isDesktopDevice && styles.textPressableDesktop) ||
+                (isTabletDevice && styles.textPressableTablet) ||
+                (isMobileDevice && styles.textPressable)
+              }
+            >
+              Explore
+            </Text>
+          </View>
+        </Pressable>
+      </View>
     </ImageBackground>
   );
 };

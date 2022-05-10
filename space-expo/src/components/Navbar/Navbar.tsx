@@ -10,14 +10,92 @@ import { useRoute } from "@react-navigation/native";
 const Navbar = () => {
   const [openModal, setOpenModal] = useState(false);
   const route = useRoute();
-  console.log(route);
 
   const navbarTablet = () => {
     const isTabletDevice = useMediaQuery({
       minDeviceWidth: 768,
     });
+    const isDesktopDevice = useMediaQuery({
+      minDeviceWidth: 1440,
+    });
 
-    if (!isTabletDevice) {
+    if (isTabletDevice) {
+      return (
+        <View style={isDesktopDevice ? styles.NavMargin : styles.Nav}>
+          <Link to={{ screen: "Home" }}>
+            <Image
+              style={styles.imageLogoTablet}
+              source={require("../../../assets/shared/logo.svg")}
+            />
+          </Link>
+          {isDesktopDevice && <View style={styles.separateLine}></View>}
+          <View style={isDesktopDevice ? styles.navDesktop : styles.navTablet}>
+            <Link
+              to={{ screen: "Home" }}
+              style={
+                route.name === "Home" ? styles.borderBottomTabletActive : styles.borderBottomTablet
+              }
+            >
+              {isDesktopDevice ? (
+                <Text style={styles.titleModalTablet}>
+                  <span style={{ fontWeight: "bold" }}>00</span> home
+                </Text>
+              ) : (
+                <Text style={styles.titleModalTablet}>home</Text>
+              )}
+            </Link>
+            <Link
+              to={{ screen: "PlanetPages" }}
+              style={
+                route.name === "PlanetPages"
+                  ? styles.borderBottomTabletActive
+                  : styles.borderBottomTablet
+              }
+            >
+              {isDesktopDevice ? (
+                <Text style={styles.titleModalTablet}>
+                  <span style={{ fontWeight: "bold" }}>01</span> destination
+                </Text>
+              ) : (
+                <Text style={styles.titleModalTablet}>destination</Text>
+              )}
+            </Link>
+            <Link
+              to={{ screen: "CrewPages" }}
+              style={
+                route.name === "CrewPages"
+                  ? styles.borderBottomTabletActive
+                  : styles.borderBottomTablet
+              }
+            >
+              {isDesktopDevice ? (
+                <Text style={styles.titleModalTablet}>
+                  <span style={{ fontWeight: "bold" }}>02</span> crew
+                </Text>
+              ) : (
+                <Text style={styles.titleModalTablet}>crew</Text>
+              )}
+            </Link>
+            <Link
+              to={{ screen: "LaunchesPages" }}
+              style={
+                route.name === "LaunchesPages"
+                  ? styles.borderBottomTabletActive
+                  : styles.borderBottomTablet
+              }
+            >
+              {isDesktopDevice ? (
+                <Text style={styles.titleModalTablet}>
+                  <span style={{ fontWeight: "bold" }}>03</span> technology
+                </Text>
+              ) : (
+                <Text style={styles.titleModalTablet}>technology</Text>
+              )}
+            </Link>
+          </View>
+        </View>
+      );
+    } else {
       return (
         <View style={styles.Nav}>
           <Link to={{ screen: "Home" }}>
@@ -33,57 +111,6 @@ const Navbar = () => {
               source={require("../../../assets/shared/icon-hamburger.svg")}
             />
           </Pressable>
-        </View>
-      );
-    } else {
-      return (
-        <View style={styles.Nav}>
-          <Link to={{ screen: "Home" }}>
-            <Image
-              style={styles.imageLogoTablet}
-              source={require("../../../assets/shared/logo.svg")}
-            />
-          </Link>
-          <View style={styles.navTablet}>
-            <Link
-              to={{ screen: "Home" }}
-              style={
-                route.name === "Home" ? styles.borderBottomTabletActive : styles.borderBottomTablet
-              }
-            >
-              <Text style={styles.titleModalTablet}>home</Text>
-            </Link>
-            <Link
-              to={{ screen: "PlanetPages" }}
-              style={
-                route.name === "PlanetPages"
-                  ? styles.borderBottomTabletActive
-                  : styles.borderBottomTablet
-              }
-            >
-              <Text style={styles.titleModalTablet}>destination</Text>
-            </Link>
-            <Link
-              to={{ screen: "CrewPages" }}
-              style={
-                route.name === "CrewPages"
-                  ? styles.borderBottomTabletActive
-                  : styles.borderBottomTablet
-              }
-            >
-              <Text style={styles.titleModalTablet}>crew</Text>
-            </Link>
-            <Link
-              to={{ screen: "LaunchesPages" }}
-              style={
-                route.name === "LaunchesPages"
-                  ? styles.borderBottomTabletActive
-                  : styles.borderBottomTablet
-              }
-            >
-              <Text style={styles.titleModalTablet}>technology</Text>
-            </Link>
-          </View>
         </View>
       );
     }

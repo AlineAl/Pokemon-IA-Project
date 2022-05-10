@@ -20,6 +20,7 @@ import { useMediaQuery } from "react-responsive";
 
 const carouselItem = require("../../../destinations.json");
 const windowWidth = Dimensions.get("window").width;
+const width = 2000;
 interface CarouselItems {
   name: string;
   description: string;
@@ -36,6 +37,12 @@ const PlanetPages = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const isTabletDevice = useMediaQuery({
     minDeviceWidth: 768,
+  });
+  const isDesktopDevice = useMediaQuery({
+    minDeviceWidth: 1440,
+  });
+  const isMobileDevice = useMediaQuery({
+    minDeviceWidth: 320,
   });
 
   const onViewRef = useRef(({ changed }: { changed: any }) => {
@@ -61,28 +68,56 @@ const PlanetPages = () => {
   const renderItems: React.FC<{ item: CarouselItems }> = ({ item }) => {
     return (
       <TouchableOpacity>
-        <Image
-          style={styles.imagesPlanet}
-          source={require(`../../../assets/destination/${item.images.webp}`)}
-        />
-
-        <View style={styles.contentBody}>
-          <Text style={isTabletDevice ? styles.namePlanetTablet : styles.namePlanet}>
-            {item.name}
-          </Text>
-          <Text style={styles.textDescription}>{item.description}</Text>
-        </View>
-
-        <View style={isTabletDevice ? styles.separateLineTablet : styles.separateLine} />
-
-        <View style={isTabletDevice ? styles.contentInfosTablet : styles.contentInfos}>
-          <View style={isTabletDevice && styles.marginContentTablet}>
-            <Text style={styles.purpleTitle}>avg. distance</Text>
-            <Text style={styles.textNum}>{item.distance}</Text>
-          </View>
+        <View style={isDesktopDevice && styles.displayFlexDesktop}>
           <View>
-            <Text style={styles.purpleTitle}>est. travel time</Text>
-            <Text style={styles.textNum}>{item.travel}</Text>
+            <Image
+              style={isDesktopDevice ? styles.imagesPlanetDesktop : styles.imagesPlanet}
+              source={require(`../../../assets/destination/${item.images.webp}`)}
+            />
+          </View>
+
+          <View style={isDesktopDevice && styles.viewContent}>
+            <View style={isDesktopDevice ? styles.contentBodyDesktop : styles.contentBody}>
+              <Text
+                style={
+                  (isDesktopDevice && styles.namePlanetDesktop) ||
+                  (isTabletDevice && styles.namePlanetTablet) ||
+                  (isMobileDevice && styles.namePlanet)
+                }
+              >
+                {item.name}
+              </Text>
+              <Text
+                style={isDesktopDevice ? styles.textDescriptionDesktop : styles.textDescription}
+              >
+                {item.description}
+              </Text>
+            </View>
+
+            <View
+              style={
+                (isDesktopDevice && styles.separateLineDesktop) ||
+                (isTabletDevice && styles.separateLineTablet) ||
+                (isMobileDevice && styles.separateLine)
+              }
+            />
+
+            <View
+              style={
+                (isDesktopDevice && styles.contentInfosDesktop) ||
+                (isTabletDevice && styles.contentInfosTablet) ||
+                (isMobileDevice && styles.contentInfos)
+              }
+            >
+              <View style={isTabletDevice && styles.marginContentTablet}>
+                <Text style={styles.purpleTitle}>avg. distance</Text>
+                <Text style={styles.textNum}>{item.distance}</Text>
+              </View>
+              <View>
+                <Text style={styles.purpleTitle}>est. travel time</Text>
+                <Text style={styles.textNum}>{item.travel}</Text>
+              </View>
+            </View>
           </View>
         </View>
       </TouchableOpacity>
@@ -93,9 +128,11 @@ const PlanetPages = () => {
     <ImageBackground
       style={styles.imageBackground}
       source={
-        isTabletDevice
-          ? require("../../../assets/destination/background-destination-tablet.jpg")
-          : require("../../../assets/destination/background-destination-mobile.jpg")
+        (isDesktopDevice &&
+          require("../../../assets/destination/background-destination-desktop.jpg")) ||
+        (isTabletDevice &&
+          require("../../../assets/destination/background-destination-tablet.jpg")) ||
+        (isMobileDevice && require("../../../assets/destination/background-destination-mobile.jpg"))
       }
     >
       <ScrollView>
@@ -105,11 +142,19 @@ const PlanetPages = () => {
             isTabletDevice ? styles.displayTitleDestinationTablet : styles.displayTitleDestination
           }
         >
-          <Text style={styles.numberTitleDestination}>01</Text>
-          <Text style={styles.titleDestination}>pick your destination</Text>
+          <Text
+            style={
+              isDesktopDevice ? styles.numberTitleDestinationDesktop : styles.numberTitleDestination
+            }
+          >
+            01
+          </Text>
+          <Text style={isDesktopDevice ? styles.titleDestinationDesktop : styles.titleDestination}>
+            pick your destination
+          </Text>
         </View>
 
-        <View style={styles.listView}>
+        <View style={isDesktopDevice ? styles.listViewDesktop : styles.listView}>
           {carouselItem.map((item: any, index: number) => {
             return (
               <TouchableOpacity key={index.toString()} onPress={() => scrollToIndex(index)}>
@@ -127,7 +172,11 @@ const PlanetPages = () => {
           keyExtractor={(_, index) => index.toString()}
           horizontal
           getItemLayout={(data, index) => {
-            return { length: windowWidth, offset: windowWidth * index, index };
+            return {
+              length: isDesktopDevice ? width : windowWidth,
+              offset: isDesktopDevice ? width * index : windowWidth * index,
+              index,
+            };
           }}
           showsHorizontalScrollIndicator={false}
           pagingEnabled

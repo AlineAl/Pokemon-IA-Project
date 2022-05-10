@@ -9,6 +9,13 @@ export default StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
+  NavMargin: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: "3rem",
+  },
   navTablet: {
     display: "flex",
     flexDirection: "row",
@@ -16,6 +23,22 @@ export default StyleSheet.create({
     backgroundColor: "#262933",
     width: 450,
     alignItems: "center",
+  },
+  navDesktop: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    backgroundColor: "rgba(255, 255, 255, 0.04)",
+    width: 830,
+    alignItems: "center",
+    paddingLeft: "4rem",
+  },
+  separateLine: {
+    borderBottomColor: "rgba(151, 151, 151, 0.26)",
+    borderBottomWidth: 1,
+    width: 474,
+    position: "relative",
+    right: -60,
   },
   imageLogoTablet: {
     width: 48,

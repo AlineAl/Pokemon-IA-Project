@@ -4,6 +4,21 @@ export default StyleSheet.create({
   imageBackground: {
     width: "100%",
   },
+  imageHeightBackground: {
+    width: "100%",
+    height: "100%",
+  },
+  displayFlexDesktop: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+  bodyHomeDesktop: {
+    width: 490,
+    display: "flex",
+    flexDirection: "column",
+    marginTop: "10rem",
+  },
   bodyHomeTablet: {
     width: 445,
     display: "flex",
@@ -28,6 +43,14 @@ export default StyleSheet.create({
     letterSpacing: 3.38,
     fontSize: 20,
   },
+  textHomeDesktop: {
+    textTransform: "uppercase",
+    color: "#D0D6F9",
+    marginTop: "3rem",
+    fontFamily: "Barlow_400Regular",
+    letterSpacing: 4.72,
+    fontSize: 28,
+  },
   textSpace: {
     textTransform: "uppercase",
     color: "#FEFEFE",
@@ -44,12 +67,27 @@ export default StyleSheet.create({
     fontSize: 150,
     fontFamily: "Bellefair_400Regular",
   },
+  textSpaceDesktop: {
+    textTransform: "uppercase",
+    color: "#FEFEFE",
+    marginTop: "1rem",
+    fontSize: 150,
+    fontFamily: "Bellefair_400Regular",
+  },
   textDescription: {
     color: "#D0D6F9",
     textAlign: "center",
     fontSize: 16,
     lineHeight: 24,
     marginLeft: "1.5rem",
+    marginRight: "1.5rem",
+    marginTop: "1rem",
+    fontFamily: "Barlow_400Regular",
+  },
+  textDescriptionDesktop: {
+    color: "#D0D6F9",
+    fontSize: 18,
+    lineHeight: 32,
     marginRight: "1.5rem",
     marginTop: "1rem",
     fontFamily: "Barlow_400Regular",
@@ -74,6 +112,17 @@ export default StyleSheet.create({
     margin: "auto",
     textAlign: "center",
   },
+  contentPressableDesktop: {
+    width: 274,
+    height: 274,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 200,
+    display: "flex",
+    marginVertical: "4rem",
+    margin: "auto",
+    marginTop: "19rem",
+    textAlign: "center",
+  },
   textPressable: {
     color: "#0B0D17",
     fontSize: 20,
@@ -89,5 +138,13 @@ export default StyleSheet.create({
     fontFamily: "Bellefair_400Regular",
     textAlign: "center",
     marginTop: "5rem",
+  },
+  textPressableDesktop: {
+    color: "#0B0D17",
+    fontSize: 32,
+    textTransform: "uppercase",
+    fontFamily: "Bellefair_400Regular",
+    textAlign: "center",
+    marginTop: "7rem",
   },
 });

@@ -5,6 +5,16 @@ const windowWidth = Dimensions.get("screen").width;
 const styles = StyleSheet.create({
   imageBackground: {
     width: "100%",
+    height: "100%",
+  },
+  displayFlexDesktop: {
+    display: "flex",
+    flexDirection: "row",
+    marginTop: "4rem",
+  },
+  viewContent: {
+    width: 1200,
+    marginLeft: "12rem",
   },
   displayTitleDestination: {
     display: "flex",
@@ -25,12 +35,28 @@ const styles = StyleSheet.create({
     fontSize: 16,
     letterSpacing: 2.7,
   },
+  titleDestinationDesktop: {
+    color: "#FFFFFF",
+    fontFamily: "BarlowCondensed_400Regular",
+    textTransform: "uppercase",
+    fontSize: 28,
+    letterSpacing: 4.72,
+  },
   numberTitleDestination: {
     color: "#4D5057",
     fontWeight: "bold",
     fontFamily: "BarlowCondensed_400Regular",
     marginRight: "1rem",
     fontSize: 16,
+    letterSpacing: 2.7,
+  },
+  numberTitleDestinationDesktop: {
+    color: "#4D5057",
+    fontWeight: "bold",
+    fontFamily: "BarlowCondensed_400Regular",
+    marginRight: "1rem",
+    fontSize: 28,
+    letterSpacing: 4.72,
   },
   listView: {
     display: "flex",
@@ -41,11 +67,27 @@ const styles = StyleSheet.create({
     top: 250,
     zIndex: 40,
   },
+  listViewDesktop: {
+    display: "flex",
+    flexDirection: "row",
+    color: "white",
+    justifyContent: "center",
+    position: "relative",
+    top: 100,
+    left: 208,
+    zIndex: 40,
+  },
   imagesPlanet: {
     width: 170,
     height: 170,
     marginTop: 28,
     margin: "auto",
+  },
+  imagesPlanetDesktop: {
+    width: 445,
+    height: 445,
+    marginTop: "0.5rem",
+    marginLeft: "12rem",
   },
   namePlanet: {
     color: "white",
@@ -61,9 +103,20 @@ const styles = StyleSheet.create({
     fontSize: 80,
     marginTop: "2.5rem",
   },
+  namePlanetDesktop: {
+    color: "white",
+    textTransform: "uppercase",
+    fontFamily: "Bellefair_400Regular",
+    fontSize: 100,
+    marginTop: "2.5rem",
+  },
   contentBody: {
     width: windowWidth,
     textAlign: "center",
+    marginTop: "2rem",
+  },
+  contentBodyDesktop: {
+    width: windowWidth,
     marginTop: "2rem",
   },
   separateLine: {
@@ -80,6 +133,12 @@ const styles = StyleSheet.create({
     margin: "auto",
     marginTop: "2rem",
   },
+  separateLineDesktop: {
+    borderBottomColor: "#383B4B",
+    borderBottomWidth: 1,
+    width: 444,
+    marginTop: "2rem",
+  },
   contentInfos: {
     textAlign: "center",
     textTransform: "uppercase",
@@ -93,6 +152,12 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     marginBottom: "3rem",
   },
+  contentInfosDesktop: {
+    display: "flex",
+    flexDirection: "row",
+    textTransform: "uppercase",
+    marginBottom: "3rem",
+  },
   marginContentTablet: {
     marginRight: "5rem",
   },
@@ -103,6 +168,13 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginHorizontal: "1rem",
     marginTop: "0.5rem",
+  },
+  textDescriptionDesktop: {
+    color: "#D0D6F9",
+    fontFamily: "Barlow_400Regular",
+    lineHeight: 32,
+    fontSize: 18,
+    width: 445,
   },
   purpleTitle: {
     color: "#D0D6F9",
@@ -132,6 +204,16 @@ const styles = StyleSheet.create({
     letterSpacing: 2.36,
     textTransform: "uppercase",
     marginLeft: "1rem",
+  },
+  linksPlanetDesktop: {
+    color: "#D0D6F9",
+    fontFamily: "BarlowCondensed_400Regular",
+    fontSize: 16,
+    letterSpacing: 2.36,
+    textTransform: "uppercase",
+    marginLeft: "1rem",
+    position: "relative",
+    top: 0,
   },
   hoverLinks: {
     color: "#FFFFFF",
