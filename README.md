@@ -2,11 +2,9 @@
 
 ### Frontend Mentor - Space tourism multi-page website
 
-This is a project of Openclassrooms. This is about creating a corporate social network. 
 
 ## 🛠 Technologies I use to code
 
-[NodeJS](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 
 ## 🎥 Screenshot of my work
 
