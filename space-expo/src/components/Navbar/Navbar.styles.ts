@@ -28,7 +28,7 @@ export default StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    backgroundColor: "rgba(255, 255, 255, 0.04)",
+    backgroundColor: "rgba(255, 255, 255, 0.4)",
     width: 830,
     alignItems: "center",
     paddingLeft: "4rem",
@@ -38,6 +38,7 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     width: 474,
     position: "relative",
+    zIndex: 1,
     right: -60,
   },
   imageLogoTablet: {

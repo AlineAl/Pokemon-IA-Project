@@ -9,12 +9,10 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column-reverse",
   },
-  displayTitleCrew: {
+  displayDesktop: {
     display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    marginTop: "1.5rem",
-    marginBottom: "1.5rem",
+    flexDirection: "row-reverse",
+    width: windowWidth,
   },
   displayTitleCrewTablet: {
     display: "flex",
@@ -23,19 +21,38 @@ const styles = StyleSheet.create({
     marginBottom: "1.5rem",
     marginLeft: "2rem",
   },
-  numberTitleCrew: {
-    color: "#4D5057",
-    fontWeight: "bold",
-    fontFamily: "BarlowCondensed_400Regular",
-    marginRight: "1rem",
-    fontSize: 16,
+  displayTitleCrewDesktop: {
+    marginLeft: "12rem",
+    marginTop: "6rem",
   },
   titleCrew: {
+    marginTop: "1.5rem",
+    marginBottom: "1.5rem",
+    textAlign: "center",
     color: "#FFFFFF",
     fontFamily: "BarlowCondensed_400Regular",
     textTransform: "uppercase",
-    fontSize: 16,
-    letterSpacing: 2.7,
+    fontSize: 20,
+    letterSpacing: 3.38,
+  },
+  titleCrewTablet: {
+    marginTop: "1.5rem",
+    marginBottom: "1.5rem",
+    marginLeft: "2rem",
+    color: "#FFFFFF",
+    fontFamily: "BarlowCondensed_400Regular",
+    textTransform: "uppercase",
+    fontSize: 20,
+    letterSpacing: 3.38,
+  },
+  titleCrewDesktop: {
+    color: "#FFFFFF",
+    fontFamily: "BarlowCondensed_400Regular",
+    textTransform: "uppercase",
+    fontSize: 28,
+    letterSpacing: 4.72,
+    marginLeft: "12rem",
+    marginTop: "4rem",
   },
   divImage: {
     borderBottomColor: "#383B4B",
@@ -44,22 +61,28 @@ const styles = StyleSheet.create({
     margin: "auto",
   },
   divImageTablet: {
-    width: 456,
     margin: "auto",
+    position: "relative",
+    zIndex: 40,
   },
   imagesCrew: {
-    width: 177.12,
+    width: 226,
     height: 250,
     margin: "auto",
     marginTop: 0,
   },
   imagesCrewTablet: {
-    width: 270,
+    width: 340,
     height: 390,
     margin: "auto",
     marginTop: "4rem",
     position: "relative",
     bottom: -22,
+  },
+  imagesCrewDesktop: {
+    width: 500,
+    height: 607,
+    position: "relative",
   },
   bodyTextCrew: {
     textAlign: "center",
@@ -70,6 +93,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: "2rem",
     width: windowWidth,
+  },
+  bodyTextCrewDesktop: {
+    marginTop: "10rem",
+    marginLeft: "12rem",
   },
   roleText: {
     color: "#FFFFFF",
@@ -82,6 +109,13 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontFamily: "Bellefair_400Regular",
     fontSize: 24,
+    textTransform: "uppercase",
+    opacity: 0.5,
+  },
+  roleTextDesktop: {
+    color: "#FFFFFF",
+    fontFamily: "Bellefair_400Regular",
+    fontSize: 32,
     textTransform: "uppercase",
     opacity: 0.5,
   },
@@ -99,6 +133,13 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     marginTop: "0.5rem",
   },
+  nameTextDesktop: {
+    color: "#FFFFFF",
+    fontFamily: "Bellefair_400Regular",
+    fontSize: 56,
+    textTransform: "uppercase",
+    marginTop: "0.5rem",
+  },
   bioText: {
     color: "#D0D6F9",
     fontFamily: "Barlow_400Regular",
@@ -106,6 +147,14 @@ const styles = StyleSheet.create({
     marginTop: "1rem",
     lineHeight: 22,
     marginHorizontal: "1rem",
+  },
+  bioTextDesktop: {
+    color: "#D0D6F9",
+    fontFamily: "Barlow_400Regular",
+    fontSize: 18,
+    marginTop: "1rem",
+    lineHeight: 32,
+    width: 444,
   },
 });
 

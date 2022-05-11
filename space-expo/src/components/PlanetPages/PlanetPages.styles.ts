@@ -28,6 +28,12 @@ const styles = StyleSheet.create({
     marginTop: "2rem",
     marginLeft: "2rem",
   },
+  displayTitleDestinationDesktop: {
+    display: "flex",
+    flexDirection: "row",
+    marginTop: "2rem",
+    marginLeft: "10rem",
+  },
   titleDestination: {
     color: "#FFFFFF",
     fontFamily: "BarlowCondensed_400Regular",

@@ -27,8 +27,14 @@ const CrewPages = () => {
     Barlow_400Regular,
     BarlowCondensed_400Regular,
   });
+  const isMobileDevice = useMediaQuery({
+    minDeviceWidth: 320,
+  });
   const isTabletDevice = useMediaQuery({
     minDeviceWidth: 768,
+  });
+  const isDesktopDevice = useMediaQuery({
+    minDeviceWidth: 1440,
   });
 
   if (!fontsLoaded) {
@@ -38,22 +44,49 @@ const CrewPages = () => {
   const renderItem: React.FC<{ item: CarouselItemsCrew }> = ({ item }) => {
     return (
       <TouchableOpacity>
-        <View style={isTabletDevice && styles.displayTablet}>
+        <View
+          style={
+            (isDesktopDevice && styles.displayDesktop) || (isTabletDevice && styles.displayTablet)
+          }
+        >
           <View style={isTabletDevice ? styles.divImageTablet : styles.divImage}>
             <Image
-              style={isTabletDevice ? styles.imagesCrewTablet : styles.imagesCrew}
+              resizeMode="stretch"
+              style={
+                (isDesktopDevice && styles.imagesCrewDesktop) ||
+                (isTabletDevice && styles.imagesCrewTablet) ||
+                (isMobileDevice && styles.imagesCrew)
+              }
               source={require(`../../../assets/crew/${item.images.webp}`)}
             />
           </View>
 
-          <View style={isTabletDevice ? styles.bodyTextCrewTablet : styles.bodyTextCrew}>
-            <Text style={isTabletDevice ? styles.roleTextTablet : styles.roleText}>
+          <View
+            style={
+              (isDesktopDevice && styles.bodyTextCrewDesktop) ||
+              (isTabletDevice && styles.bodyTextCrewTablet) ||
+              (isMobileDevice && styles.bodyTextCrew)
+            }
+          >
+            <Text
+              style={
+                (isDesktopDevice && styles.roleTextDesktop) ||
+                (isTabletDevice && styles.roleTextTablet) ||
+                (isMobileDevice && styles.roleText)
+              }
+            >
               {item.role}
             </Text>
-            <Text style={isTabletDevice ? styles.nameTextTablet : styles.nameText}>
+            <Text
+              style={
+                (isDesktopDevice && styles.nameTextDesktop) ||
+                (isTabletDevice && styles.nameTextTablet) ||
+                (isMobileDevice && styles.nameText)
+              }
+            >
               {item.name}
             </Text>
-            <Text style={styles.bioText}>{item.bio}</Text>
+            <Text style={isDesktopDevice ? styles.bioTextDesktop : styles.bioText}>{item.bio}</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -64,16 +97,23 @@ const CrewPages = () => {
     <ImageBackground
       style={styles.imageBackground}
       source={
-        isTabletDevice
-          ? require("../../../assets/crew/background-crew-tablet.jpg")
-          : require("../../../assets/crew/background-crew-mobile.jpg")
+        (isDesktopDevice && require("../../../assets/crew/background-crew-desktop.jpg")) ||
+        (isTabletDevice && require("../../../assets/crew/background-crew-tablet.jpg")) ||
+        (isMobileDevice && require("../../../assets/crew/background-crew-mobile.jpg"))
       }
     >
       <ScrollView>
         <Navbar />
-        <View style={isTabletDevice ? styles.displayTitleCrewTablet : styles.displayTitleCrew}>
-          <Text style={styles.numberTitleCrew}>02</Text>
-          <Text style={styles.titleCrew}>meet your crew</Text>
+        <View style={{ position: "relative", zIndex: -5 }}>
+          <Text
+            style={
+              (isDesktopDevice && styles.titleCrewDesktop) ||
+              (isTabletDevice && styles.titleCrewTablet) ||
+              (isMobileDevice && styles.titleCrew)
+            }
+          >
+            <span style={{ color: "#4D5057", fontWeight: "bold" }}>02</span> meet your crew
+          </Text>
         </View>
 
         <SwiperFlatList
@@ -83,8 +123,14 @@ const CrewPages = () => {
           horizontal
           showsHorizontalScrollIndicator={false}
           showPagination
-          paginationStyle={{ position: "absolute", top: 396 }}
-          paginationStyleItem={{ width: 10, height: 10 }}
+          paginationStyle={
+            isDesktopDevice
+              ? { position: "absolute", bottom: 40, left: "11rem" }
+              : { position: "absolute", top: 396 }
+          }
+          paginationStyleItem={
+            isDesktopDevice ? { width: 15, height: 15 } : { width: 10, height: 10 }
+          }
         />
       </ScrollView>
     </ImageBackground>

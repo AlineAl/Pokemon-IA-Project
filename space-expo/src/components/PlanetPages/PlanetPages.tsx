@@ -139,7 +139,9 @@ const PlanetPages = () => {
         <Navbar />
         <View
           style={
-            isTabletDevice ? styles.displayTitleDestinationTablet : styles.displayTitleDestination
+            (isDesktopDevice && styles.displayTitleDestinationDesktop) ||
+            (isTabletDevice && styles.displayTitleDestinationTablet) ||
+            (isMobileDevice && styles.displayTitleDestination)
           }
         >
           <Text

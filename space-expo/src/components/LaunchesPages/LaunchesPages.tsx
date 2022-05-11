@@ -24,6 +24,12 @@ const LaunchesPages = () => {
   const isTabletDevice = useMediaQuery({
     minDeviceWidth: 768,
   });
+  const isDesktopDevice = useMediaQuery({
+    minDeviceWidth: 1440,
+  });
+  const isMobileDevice = useMediaQuery({
+    minDeviceWidth: 320,
+  });
 
   const onViewRef = useRef(({ changed }: { changed: any }) => {
     if (changed[0].isViewable) {
@@ -53,9 +59,21 @@ const LaunchesPages = () => {
     >
       <ScrollView>
         <Navbar />
-        <View style={isTabletDevice ? styles.displayTitleLaunchTablet : styles.displayTitleLaunch}>
-          <Text style={styles.numberTitleLaunch}>03</Text>
-          <Text style={styles.titleLaunch}>space launch 101</Text>
+        <View
+          style={
+            (isDesktopDevice && styles.displayTitleLaunchDesktop) ||
+            (isTabletDevice && styles.displayTitleLaunchTablet) ||
+            (isMobileDevice && styles.displayTitleLaunch)
+          }
+        >
+          <Text
+            style={isDesktopDevice ? styles.numberTitleLaunchDesktop : styles.numberTitleLaunch}
+          >
+            03
+          </Text>
+          <Text style={isDesktopDevice ? styles.titleLaunchDesktop : styles.titleLaunch}>
+            space launch 101
+          </Text>
         </View>
 
         {loading ? (
@@ -75,23 +93,53 @@ const LaunchesPages = () => {
               return { length: windowWidth, offset: windowWidth * index, index };
             }}
             renderItem={({ item }) => (
-              <View key={item.id} style={styles.contentBody}>
-                <Image
-                  style={isTabletDevice ? styles.imageLauncheTablet : styles.imageLaunche}
-                  source={{ uri: `${item.links.flickr_images[2]}` }}
-                />
-
-                <Text style={styles.terminoText}>the terminology...</Text>
-                <Text style={isTabletDevice ? styles.titleLauncheTablet : styles.titleLaunche}>
-                  {item.mission_name}
-                </Text>
-                <Text style={styles.descriptionLaunche}>{item.details}</Text>
+              <View
+                key={item.id}
+                style={isDesktopDevice ? styles.contentBodyDesktop : styles.contentBody}
+              >
+                <View>
+                  <Image
+                    style={
+                      (isDesktopDevice && styles.imageLauncheDesktop) ||
+                      (isTabletDevice && styles.imageLauncheTablet) ||
+                      (isMobileDevice && styles.imageLaunche)
+                    }
+                    source={{ uri: `${item.links.flickr_images[2]}` }}
+                  />
+                </View>
+                <View style={isDesktopDevice && styles.infosLaunchesDesktop}>
+                  <Text style={isTabletDevice ? styles.terminoTextTablet : styles.terminoText}>
+                    the terminology...
+                  </Text>
+                  <Text
+                    style={
+                      (isDesktopDevice && styles.titleLauncheDesktop) ||
+                      (isTabletDevice && styles.titleLauncheTablet) ||
+                      (isMobileDevice && styles.titleLaunche)
+                    }
+                  >
+                    {item.mission_name}
+                  </Text>
+                  <Text
+                    style={
+                      isDesktopDevice ? styles.descriptionLauncheDesktop : styles.descriptionLaunche
+                    }
+                  >
+                    {item.details}
+                  </Text>
+                </View>
               </View>
             )}
           />
         )}
 
-        <View style={isTabletDevice ? styles.flexCarouselTablet : styles.flexCarousel}>
+        <View
+          style={
+            (isDesktopDevice && styles.flexCarouselDesktop) ||
+            (isTabletDevice && styles.flexCarouselTablet) ||
+            (isMobileDevice && styles.flexCarousel)
+          }
+        >
           {loading ? (
             <View></View>
           ) : (
@@ -100,11 +148,25 @@ const LaunchesPages = () => {
                 <TouchableOpacity key={index.toString()} onPress={() => scrollToIndex(index)}>
                   <View
                     style={
-                      index === currentIndex ? styles.hoverViewDotNumber : styles.viewDotNumber
+                      index === currentIndex
+                        ? isDesktopDevice
+                          ? styles.hoverViewDotNumberDesktop
+                          : styles.hoverViewDotNumber
+                        : isDesktopDevice
+                        ? styles.viewDotNumberDesktop
+                        : styles.viewDotNumber
                     }
                   >
                     <Text
-                      style={index === currentIndex ? styles.hoverDotNumber : styles.dotNumbers}
+                      style={
+                        index === currentIndex
+                          ? isDesktopDevice
+                            ? styles.hoverDotNumberDesktop
+                            : styles.hoverDotNumber
+                          : isDesktopDevice
+                          ? styles.dotNumbersDesktop
+                          : styles.dotNumbers
+                      }
                     >
                       {index + 1}
                     </Text>

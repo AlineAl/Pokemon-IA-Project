@@ -29,7 +29,11 @@ const Navbar = () => {
             />
           </Link>
           {isDesktopDevice && <View style={styles.separateLine}></View>}
-          <View style={isDesktopDevice ? styles.navDesktop : styles.navTablet}>
+          <BlurView
+            intensity={50}
+            tint={"dark"}
+            style={isDesktopDevice ? styles.navDesktop : styles.navTablet}
+          >
             <Link
               to={{ screen: "Home" }}
               style={
@@ -92,7 +96,7 @@ const Navbar = () => {
                 <Text style={styles.titleModalTablet}>technology</Text>
               )}
             </Link>
-          </View>
+          </BlurView>
         </View>
       );
     } else {
@@ -126,7 +130,7 @@ const Navbar = () => {
         style={styles.withoutMargin}
         backdropOpacity={0.04}
       >
-        <BlurView intensity={100} style={styles.modalBarContainer}>
+        <BlurView tint={"dark"} intensity={40} style={styles.modalBarContainer}>
           <Pressable
             onPress={() => {
               setOpenModal(!openModal);

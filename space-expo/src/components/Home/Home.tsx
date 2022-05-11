@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, ImageBackground, Pressable, View } from "react-native";
 import Navbar from "../Navbar/Navbar";
 import { Bellefair_400Regular } from "@expo-google-fonts/bellefair";
@@ -7,12 +7,29 @@ import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import styles from "./Home.styles";
 import { useMediaQuery } from "react-responsive";
+import * as Animatable from "react-native-animatable";
 
 const Home = ({ navigation: { navigate } }: any) => {
+  const [click, setClick] = useState(false);
   let [fontsLoaded] = useFonts({
     Bellefair_400Regular,
     Barlow_400Regular,
   });
+
+  const pulseCircle = {
+    0: {
+      opacity: 1,
+      scale: 0.3,
+    },
+    0.8: {
+      opacity: 1,
+      scale: 0.8,
+    },
+    1: {
+      opacity: 0,
+      scale: 1,
+    },
+  };
 
   const isTabletDevice = useMediaQuery({
     minDeviceWidth: 768,
@@ -71,7 +88,11 @@ const Home = ({ navigation: { navigate } }: any) => {
         <Pressable
           style={{ zIndex: -1 }}
           onPress={() => {
-            navigate("PlanetPages");
+            setTimeout(() => {
+              navigate("PlanetPages");
+              setClick(click);
+            }, 800);
+            setClick(!click);
           }}
         >
           <View
@@ -81,6 +102,18 @@ const Home = ({ navigation: { navigate } }: any) => {
               (isMobileDevice && styles.contentPressable)
             }
           >
+            {click && (
+              <Animatable.View
+                animation={pulseCircle}
+                easing="ease-out"
+                duration={700}
+                style={
+                  (isDesktopDevice && styles.circlePulse) ||
+                  (isTabletDevice && styles.circlePulseTablet) ||
+                  (isMobileDevice && styles.circlePulseMobile)
+                }
+              ></Animatable.View>
+            )}
             <Text
               style={
                 (isDesktopDevice && styles.textPressableDesktop) ||
