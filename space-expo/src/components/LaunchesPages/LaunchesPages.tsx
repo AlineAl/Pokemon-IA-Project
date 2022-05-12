@@ -13,7 +13,7 @@ import styles from "./LaunchesPages.styles";
 import Navbar from "../Navbar/Navbar";
 import { useQuery } from "@apollo/client";
 import GET_LAUNCHES from "../../graphql/Launches";
-import { useMediaQuery } from "react-responsive";
+import { useMediaQuery } from "native-base";
 
 const windowWidth = Dimensions.get("window").width;
 
@@ -21,14 +21,14 @@ const LaunchesPages = () => {
   const viewConfigRef = { viewAreaCoveragePercentThreshold: 95 };
   let flatListRef = useRef<FlatList | null>();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const isTabletDevice = useMediaQuery({
-    minDeviceWidth: 768,
+  const [isTabletDevice] = useMediaQuery({
+    minWidth: 768,
   });
-  const isDesktopDevice = useMediaQuery({
-    minDeviceWidth: 1440,
+  const [isDesktopDevice] = useMediaQuery({
+    minWidth: 1440,
   });
-  const isMobileDevice = useMediaQuery({
-    minDeviceWidth: 320,
+  const [isMobileDevice] = useMediaQuery({
+    minWidth: 320,
   });
 
   const onViewRef = useRef(({ changed }: { changed: any }) => {

@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   imageBackground: {
     width: "100%",
+    paddingBottom: "6rem",
   },
   imageHeightBackground: {
     width: "100%",
@@ -119,7 +120,6 @@ export default StyleSheet.create({
     borderRadius: 200,
     display: "flex",
     marginVertical: "4rem",
-    margin: "auto",
     marginTop: "19rem",
     textAlign: "center",
   },

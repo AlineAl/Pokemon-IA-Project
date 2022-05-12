@@ -8,7 +8,7 @@ import { BarlowCondensed_400Regular } from "@expo-google-fonts/barlow-condensed"
 import { useFonts } from "@expo-google-fonts/barlow";
 import AppLoading from "expo-app-loading";
 import { SwiperFlatList } from "react-native-swiper-flatlist";
-import { useMediaQuery } from "react-responsive";
+import { useMediaQuery } from "native-base";
 
 const carouselItemCrew = require("../../../crew.json");
 
@@ -27,14 +27,14 @@ const CrewPages = () => {
     Barlow_400Regular,
     BarlowCondensed_400Regular,
   });
-  const isMobileDevice = useMediaQuery({
-    minDeviceWidth: 320,
+  const [isMobileDevice] = useMediaQuery({
+    minWidth: 320,
   });
-  const isTabletDevice = useMediaQuery({
-    minDeviceWidth: 768,
+  const [isTabletDevice] = useMediaQuery({
+    minWidth: 768,
   });
-  const isDesktopDevice = useMediaQuery({
-    minDeviceWidth: 1440,
+  const [isDesktopDevice] = useMediaQuery({
+    minWidth: 1440,
   });
 
   if (!fontsLoaded) {

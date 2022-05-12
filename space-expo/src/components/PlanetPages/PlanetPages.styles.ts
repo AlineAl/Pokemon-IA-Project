@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
 
-const windowWidth = Dimensions.get("screen").width;
+const windowWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
   imageBackground: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     marginTop: "4rem",
   },
   viewContent: {
-    width: 1200,
+    width: windowWidth,
     marginLeft: "12rem",
   },
   displayTitleDestination: {

@@ -1,9 +1,11 @@
 import { StyleSheet, Dimensions } from "react-native";
-const windowWidth = Dimensions.get("screen").width;
+
+const windowWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
   imageBackground: {
     width: "100%",
+    height: "100%",
   },
   displayTablet: {
     display: "flex",

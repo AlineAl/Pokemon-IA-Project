@@ -4,7 +4,6 @@ import { AppRegistry } from "react-native";
 import Home from "./src/components/Home/Home";
 import PlanetPages from "./src/components/PlanetPages/PlanetPages";
 import CrewPages from "./src/components/CrewPages/CrewPages";
-import Navbar from "./src/components/Navbar/Navbar";
 import LaunchesPages from "./src/components/LaunchesPages/LaunchesPages";
 import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 

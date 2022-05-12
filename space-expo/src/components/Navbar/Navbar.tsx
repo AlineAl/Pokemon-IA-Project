@@ -4,19 +4,19 @@ import { Link } from "@react-navigation/native";
 import Modal from "react-native-modal";
 import styles from "./Navbar.styles";
 import { BlurView } from "expo-blur";
-import { useMediaQuery } from "react-responsive";
 import { useRoute } from "@react-navigation/native";
+import { useMediaQuery } from "native-base";
 
 const Navbar = () => {
   const [openModal, setOpenModal] = useState(false);
   const route = useRoute();
 
   const navbarTablet = () => {
-    const isTabletDevice = useMediaQuery({
-      minDeviceWidth: 768,
+    const [isTabletDevice] = useMediaQuery({
+      minWidth: 768,
     });
-    const isDesktopDevice = useMediaQuery({
-      minDeviceWidth: 1440,
+    const [isDesktopDevice] = useMediaQuery({
+      minWidth: 1440,
     });
 
     if (isTabletDevice) {

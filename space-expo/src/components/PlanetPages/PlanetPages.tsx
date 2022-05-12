@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import { Bellefair_400Regular } from "@expo-google-fonts/bellefair";
 import { Barlow_400Regular } from "@expo-google-fonts/barlow";
@@ -16,11 +16,9 @@ import {
   ScrollView,
 } from "react-native";
 import styles from "./PlanetPages.styles";
-import { useMediaQuery } from "react-responsive";
+import { useMediaQuery } from "native-base";
 
 const carouselItem = require("../../../destinations.json");
-const windowWidth = Dimensions.get("window").width;
-const width = 2000;
 interface CarouselItems {
   name: string;
   description: string;
@@ -32,18 +30,28 @@ interface CarouselItems {
 }
 
 const PlanetPages = () => {
+  const width = 2000;
   const viewConfigRef = { viewAreaCoveragePercentThreshold: 95 };
   let flatListRef = useRef<FlatList<CarouselItems> | null>();
+
   const [currentIndex, setCurrentIndex] = useState(0);
-  const isTabletDevice = useMediaQuery({
-    minDeviceWidth: 768,
+  const [dimensions, setDimensions] = useState({ width: Dimensions.get("window").width });
+
+  const [isTabletDevice] = useMediaQuery({
+    minWidth: 768,
   });
-  const isDesktopDevice = useMediaQuery({
-    minDeviceWidth: 1440,
+  const [isDesktopDevice] = useMediaQuery({
+    minWidth: 1440,
   });
-  const isMobileDevice = useMediaQuery({
-    minDeviceWidth: 320,
+  const [isMobileDevice] = useMediaQuery({
+    minWidth: 320,
   });
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setDimensions({ width: Dimensions.get("window").width });
+    });
+  }, []);
 
   const onViewRef = useRef(({ changed }: { changed: any }) => {
     if (changed[0].isViewable) {
@@ -167,16 +175,16 @@ const PlanetPages = () => {
             );
           })}
         </View>
-
         <FlatList
+          refreshing={true}
           data={carouselItem}
           renderItem={renderItems}
           keyExtractor={(_, index) => index.toString()}
           horizontal
-          getItemLayout={(data, index) => {
+          getItemLayout={(_, index) => {
             return {
-              length: isDesktopDevice ? width : windowWidth,
-              offset: isDesktopDevice ? width * index : windowWidth * index,
+              length: isDesktopDevice ? width : dimensions.width,
+              offset: isDesktopDevice ? width * index : dimensions.width * index,
               index,
             };
           }}

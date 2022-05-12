@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Text, ImageBackground, Pressable, View } from "react-native";
+import { useRoute } from "@react-navigation/native";
 import Navbar from "../Navbar/Navbar";
 import { Bellefair_400Regular } from "@expo-google-fonts/bellefair";
 import { Barlow_400Regular } from "@expo-google-fonts/barlow";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import styles from "./Home.styles";
-import { useMediaQuery } from "react-responsive";
+import { useMediaQuery } from "native-base";
 import * as Animatable from "react-native-animatable";
 
 const Home = ({ navigation: { navigate } }: any) => {
@@ -31,14 +32,14 @@ const Home = ({ navigation: { navigate } }: any) => {
     },
   };
 
-  const isTabletDevice = useMediaQuery({
-    minDeviceWidth: 768,
+  const [isTabletDevice] = useMediaQuery({
+    minWidth: 768,
   });
-  const isDesktopDevice = useMediaQuery({
-    minDeviceWidth: 1440,
+  const [isDesktopDevice] = useMediaQuery({
+    minWidth: 1440,
   });
-  const isMobileDevice = useMediaQuery({
-    minDeviceWidth: 320,
+  const [isMobileDevice] = useMediaQuery({
+    minWidth: 320,
   });
 
   if (!fontsLoaded) {
@@ -47,7 +48,11 @@ const Home = ({ navigation: { navigate } }: any) => {
 
   return (
     <ImageBackground
-      style={isDesktopDevice ? styles.imageHeightBackground : styles.imageBackground}
+      style={
+        (isDesktopDevice && styles.imageBackground) ||
+        (isTabletDevice && styles.imageBackground) ||
+        (isMobileDevice && styles.imageHeightBackground)
+      }
       source={
         (isDesktopDevice && require("../../../assets/home/background-home-desktop.jpg")) ||
         (isTabletDevice && require("../../../assets/home/background-home-tablet.jpg")) ||
