@@ -120,7 +120,12 @@ const PlanetPages = () => {
                 (isMobileDevice && styles.contentInfos)
               }
             >
-              <View style={isTabletDevice && styles.marginContentTablet}>
+              <View
+                style={
+                  (isDesktopDevice && styles.marginContentTablet) ||
+                  (isTabletDevice && styles.marginContentTablet)
+                }
+              >
                 <Text style={styles.purpleTitle}>avg. distance</Text>
                 <Text style={styles.textNum}>{item.distance}</Text>
               </View>
