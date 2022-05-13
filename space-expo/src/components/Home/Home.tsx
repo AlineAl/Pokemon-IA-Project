@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, ImageBackground, Pressable, View, ScrollView } from "react-native";
 import Navbar from "../Navbar/Navbar";
 import { Bellefair_400Regular } from "@expo-google-fonts/bellefair";
@@ -8,9 +8,29 @@ import AppLoading from "expo-app-loading";
 import styles from "./Home.styles";
 import { useMediaQuery } from "native-base";
 import * as Animatable from "react-native-animatable";
+import alanBtn from "@alan-ai/alan-sdk-web";
+import { ALAN_KEY } from "@env";
 
 const Home = ({ navigation: { navigate } }: any) => {
+  useEffect(() => {
+    alanBtn({
+      key: ALAN_KEY,
+      onCommand: (commandData: any) => {
+        if (commandData.command === "home page") {
+          navigate("Home");
+        } else if (commandData.command === "planet page") {
+          navigate("PlanetPages");
+        } else if (commandData.command === "crew page") {
+          navigate("CrewPages");
+        } else if (commandData.command === "launch page") {
+          navigate("LaunchesPages");
+        }
+      },
+    });
+  }, []);
+
   const [click, setClick] = useState(false);
+
   let [fontsLoaded] = useFonts({
     Bellefair_400Regular,
     Barlow_400Regular,
