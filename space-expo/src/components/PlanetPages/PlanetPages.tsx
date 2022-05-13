@@ -17,6 +17,7 @@ import {
 } from "react-native";
 import styles from "./PlanetPages.styles";
 import { useMediaQuery } from "native-base";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const carouselItem = require("../../../destinations.json");
 interface CarouselItems {
@@ -39,12 +40,14 @@ const PlanetPages = () => {
 
   const [isTabletDevice] = useMediaQuery({
     minWidth: 768,
+    maxWidth: 1440,
   });
   const [isDesktopDevice] = useMediaQuery({
     minWidth: 1440,
   });
   const [isMobileDevice] = useMediaQuery({
     minWidth: 320,
+    maxWidth: 768,
   });
 
   useEffect(() => {
@@ -140,10 +143,10 @@ const PlanetPages = () => {
           require("../../../assets/destination/background-destination-desktop.jpg")) ||
         (isTabletDevice &&
           require("../../../assets/destination/background-destination-tablet.jpg")) ||
-        (isMobileDevice && require("../../../assets/destination/background-destination-mobile.jpg"))
+        (isMobileDevice && require("../../../assets/destination/background-destination-tablet.jpg"))
       }
     >
-      <ScrollView>
+      <View>
         <Navbar />
         <View
           style={
@@ -196,7 +199,7 @@ const PlanetPages = () => {
           viewabilityConfig={viewConfigRef}
           onViewableItemsChanged={onViewRef.current}
         />
-      </ScrollView>
+      </View>
     </ImageBackground>
   );
 };

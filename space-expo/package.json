@@ -33,8 +33,7 @@
     "react-native-swiper-flatlist": "^3.0.16",
     "react-native-web": "0.17.1",
     "react-responsive": "^9.0.0-beta.6",
-    "react-router-dom": "^6.3.0",
-    "vercel": "^24.2.2"
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

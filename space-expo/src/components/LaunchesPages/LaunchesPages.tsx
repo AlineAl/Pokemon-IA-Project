@@ -23,12 +23,14 @@ const LaunchesPages = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTabletDevice] = useMediaQuery({
     minWidth: 768,
+    maxWidth: 1440,
   });
   const [isDesktopDevice] = useMediaQuery({
     minWidth: 1440,
   });
   const [isMobileDevice] = useMediaQuery({
     minWidth: 320,
+    maxWidth: 768,
   });
 
   const onViewRef = useRef(({ changed }: { changed: any }) => {
@@ -57,7 +59,7 @@ const LaunchesPages = () => {
           : require("../../../assets/technology/background-technology-mobile.jpg")
       }
     >
-      <ScrollView>
+      <View>
         <Navbar />
         <View
           style={
@@ -176,7 +178,7 @@ const LaunchesPages = () => {
             })
           )}
         </View>
-      </ScrollView>
+      </View>
     </ImageBackground>
   );
 };

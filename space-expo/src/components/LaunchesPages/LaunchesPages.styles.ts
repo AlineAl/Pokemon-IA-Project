@@ -4,7 +4,8 @@ const windowWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
   imageBackground: {
-    width: "100%",
+    flex: 1,
+    height: "130vh",
   },
   displayTitleLaunch: {
     display: "flex",

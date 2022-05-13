@@ -1,13 +1,8 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   imageBackground: {
-    width: "100%",
-    paddingBottom: "6rem",
-  },
-  imageHeightBackground: {
-    width: "100%",
-    height: "100%",
+    flex: 1,
   },
   displayFlexDesktop: {
     display: "flex",
