@@ -142,7 +142,7 @@ const PlanetPages = () => {
 
   return (
     <ImageBackground
-      style={styles.imageBackground}
+      style={isDesktopDevice ? styles.imageBackgroundDesktop : styles.imageBackground}
       source={
         (isDesktopDevice &&
           require("../../../assets/destination/background-destination-desktop.jpg")) ||

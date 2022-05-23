@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
   imageBackground: {
     width: "100%",
   },
+  imageBackgroundDesktop: {
+    flex: 1,
+  },
   displayFlexDesktop: {
     display: "flex",
     flexDirection: "row",
