@@ -13,7 +13,6 @@ import {
   FlatList,
   Dimensions,
   TouchableOpacity,
-  ScrollView,
 } from "react-native";
 import styles from "./PlanetPages.styles";
 import { useMediaQuery } from "native-base";
@@ -142,7 +141,7 @@ const PlanetPages = () => {
 
   return (
     <ImageBackground
-      style={isDesktopDevice ? styles.imageBackgroundDesktop : styles.imageBackground}
+      style={styles.imageBackground}
       source={
         (isDesktopDevice &&
           require("../../../assets/destination/background-destination-desktop.jpg")) ||

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { ScrollView, ImageBackground, View, Text, Image, TouchableOpacity } from "react-native";
 import Navbar from "../Navbar/Navbar";
 import styles from "../CrewPages/CrewPages.styles";
@@ -43,7 +43,7 @@ const CrewPages = () => {
 
   const renderItem: React.FC<{ item: CarouselItemsCrew }> = ({ item }) => {
     return (
-      <TouchableOpacity>
+      <View>
         <View
           style={
             (isDesktopDevice && styles.displayDesktop) || (isTabletDevice && styles.displayTablet)
@@ -89,7 +89,7 @@ const CrewPages = () => {
             <Text style={isDesktopDevice ? styles.bioTextDesktop : styles.bioText}>{item.bio}</Text>
           </View>
         </View>
-      </TouchableOpacity>
+      </View>
     );
   };
 

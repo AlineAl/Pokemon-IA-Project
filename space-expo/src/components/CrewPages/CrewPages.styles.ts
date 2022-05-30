@@ -5,7 +5,7 @@ const windowWidth = Dimensions.get("window").width;
 const styles = StyleSheet.create({
   imageBackground: {
     width: "100%",
-    height: "100%",
+    minHeight: "100%",
   },
   displayTablet: {
     display: "flex",
@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
     width: 500,
     height: 607,
     position: "relative",
+    marginTop: "2rem",
   },
   bodyTextCrew: {
     textAlign: "center",

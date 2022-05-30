@@ -5,9 +5,7 @@ const windowWidth = Dimensions.get("window").width;
 const styles = StyleSheet.create({
   imageBackground: {
     width: "100%",
-  },
-  imageBackgroundDesktop: {
-    flex: 1,
+    minHeight: "100%",
   },
   displayFlexDesktop: {
     display: "flex",

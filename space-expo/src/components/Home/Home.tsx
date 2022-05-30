@@ -51,16 +51,17 @@ const Home = ({ navigation: { navigate } }: any) => {
     },
   };
 
+  const [isMobileDevice] = useMediaQuery({
+    minWidth: 320,
+    maxWidth: 768,
+  });
   const [isTabletDevice] = useMediaQuery({
     minWidth: 768,
     maxWidth: 1440,
   });
   const [isDesktopDevice] = useMediaQuery({
     minWidth: 1440,
-  });
-  const [isMobileDevice] = useMediaQuery({
-    minWidth: 320,
-    maxWidth: 768,
+    maxWidth: 1920,
   });
 
   if (!fontsLoaded) {
