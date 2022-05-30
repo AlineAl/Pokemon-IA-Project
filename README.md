@@ -8,7 +8,8 @@
 
 ## 🎥 Screenshot of my work
 
-![Cover](https://github.com/AlineAl/Space-IA-Project/blob/master/background_home_space.png) ![Cover](https://github.com/AlineAl/Space-IA-Project/blob/master/tablet_crew_page.png)
+![Cover](https://github.com/AlineAl/Space-IA-Project/blob/master/tablet_crew_page.png) ![Cover](https://github.com/AlineAl/Space-IA-Project/blob/master/mobile_planet_page.png)
+![Cover](https://github.com/AlineAl/Space-IA-Project/blob/master/background_home_space.png)
 
 ## 💾 Step by step
 
