@@ -41,7 +41,15 @@ It is obvious that I will have remained within the framework of what the client 
 ## 🧬 My references
 
 https://studio.alan.app/
+
+
 https://reactnative.dev/
+
+
 https://grafikart.fr/tutoriels/carrousel-javascript-87
+
+
 https://www.typescriptlang.org/
+
+
 https://www.apollographql.com/blog/
