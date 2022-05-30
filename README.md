@@ -22,6 +22,7 @@ I was able to explore several ways to use React-Native to set up carousels. It's
 
 But I didn't just do integration for this challenge. I really liked the idea of space tourism. So I couldn't resist adding my touch of humor and modifying some files to include the SG1 team (I love SG1). And if I had to choose a team to go into space, I would choose SG1 without hesitation. I also took the opportunity to continue working with Apollo Client, I found a GraphQL API grouping rocket launches. I included it on the technology page to give some realism. I haven't exploited this API in depth but I liked working with it.
 
+The site is not suitable for screens larger than 1440px.
 
 And finally, because I'm saving the best for last, I added voice assistance (Alan AI), which is very simple to implement and set up. I wanted to add a "science fiction" effect with a robotic voice. She is very limited and to help you, here is the list of what you can ask her:
 => What's your name ?
