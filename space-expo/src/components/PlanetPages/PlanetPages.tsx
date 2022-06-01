@@ -16,7 +16,6 @@ import {
 } from "react-native";
 import styles from "./PlanetPages.styles";
 import { useMediaQuery } from "native-base";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const carouselItem = require("../../../destinations.json");
 interface CarouselItems {
@@ -30,24 +29,32 @@ interface CarouselItems {
 }
 
 const PlanetPages = () => {
-  const width = 2000;
   const viewConfigRef = { viewAreaCoveragePercentThreshold: 95 };
   let flatListRef = useRef<FlatList<CarouselItems> | null>();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [dimensions, setDimensions] = useState({ width: Dimensions.get("window").width });
 
-  const [isTabletDevice] = useMediaQuery({
-    minWidth: 768,
-    maxWidth: 1440,
+  const [isBigDesktopDevice] = useMediaQuery({
+    minWidth: 1500,
   });
   const [isDesktopDevice] = useMediaQuery({
     minWidth: 1440,
+  });
+  const [isTabletDevice] = useMediaQuery({
+    minWidth: 768,
+    maxWidth: 1440,
   });
   const [isMobileDevice] = useMediaQuery({
     minWidth: 320,
     maxWidth: 768,
   });
+
+  const width: any =
+    (isBigDesktopDevice && 2500) ||
+    (isDesktopDevice && 2000) ||
+    (isTabletDevice && dimensions.width) ||
+    (isMobileDevice && dimensions.width);
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -171,7 +178,13 @@ const PlanetPages = () => {
           </Text>
         </View>
 
-        <View style={isDesktopDevice ? styles.listViewDesktop : styles.listView}>
+        <View
+          style={
+            (isDesktopDevice && styles.listViewDesktop) ||
+            (isTabletDevice && styles.listView) ||
+            (isMobileDevice && styles.listView)
+          }
+        >
           {carouselItem.map((item: any, index: number) => {
             return (
               <TouchableOpacity key={index.toString()} onPress={() => scrollToIndex(index)}>
@@ -190,8 +203,8 @@ const PlanetPages = () => {
           horizontal
           getItemLayout={(_, index) => {
             return {
-              length: isDesktopDevice ? width : dimensions.width,
-              offset: isDesktopDevice ? width * index : dimensions.width * index,
+              length: width,
+              offset: width * index,
               index,
             };
           }}

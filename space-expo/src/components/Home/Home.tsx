@@ -11,6 +11,8 @@ import * as Animatable from "react-native-animatable";
 import alanBtn from "@alan-ai/alan-sdk-web";
 import { ALAN_KEY } from "@env";
 
+const carouselItem = require("../../../destinations.json");
+
 const Home = ({ navigation: { navigate } }: any) => {
   useEffect(() => {
     alanBtn({
@@ -61,7 +63,6 @@ const Home = ({ navigation: { navigate } }: any) => {
   });
   const [isDesktopDevice] = useMediaQuery({
     minWidth: 1440,
-    maxWidth: 1920,
   });
 
   if (!fontsLoaded) {

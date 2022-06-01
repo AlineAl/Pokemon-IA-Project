@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import {
   ImageBackground,
-  ScrollView,
   View,
   Text,
   FlatList,
@@ -91,7 +90,7 @@ const LaunchesPages = () => {
             }}
             viewabilityConfig={viewConfigRef}
             onViewableItemsChanged={onViewRef.current}
-            getItemLayout={(data, index) => {
+            getItemLayout={(_, index) => {
               return { length: windowWidth, offset: windowWidth * index, index };
             }}
             renderItem={({ item }) => (
